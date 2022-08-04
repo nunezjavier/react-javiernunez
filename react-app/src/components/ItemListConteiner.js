@@ -1,8 +1,12 @@
+import ItemCount from "./ItemCount"
+
+
 function ItemListConteiner(props){
     return (
-        <div>
-            <h2 className="titulo">{props.greeting}Productos más vendidos en la semana </h2>
+        <><div>
+            <h2 className="titulo">{props.greeting}Productos</h2>
         </div>
+        <ItemCount initial={1} stock={8} /></>
 )
 }
 
