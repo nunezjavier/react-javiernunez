@@ -4,7 +4,7 @@ import ItemCount from "./ItemCount"
 function ItemListConteiner(props){
     return (
         <><div>
-            <h2 className="titulo">{props.greeting}Productos</h2>
+            <h2 className="titulo">{props.greeting}</h2>
         </div>
         <ItemCount initial={1} stock={8} /></>
 )
