@@ -8,7 +8,7 @@
 }
 .titulo{
   margin-left: 9px;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   text-align: center;
 }
 ul{
@@ -23,7 +23,7 @@ li{
 }
 .contador{
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 button{
   margin: 10px;
