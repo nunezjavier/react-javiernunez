@@ -2,15 +2,15 @@ import React, {useEffect, useState} from "react"
 import ItemList from "./ItemList/ItemList"
 import {useParams} from "react-router-dom"
 import dataProducts from './Data/Data';
+import getProduct from "../helpers/getProducts";
 
 function ItemListConteiner(){
     const [data, setData] = useState([]);
     const idCategory = useParams().idCategory
 
 
-
     useEffect(() => {
-        HeadProducts ().then((respuesta) => {
+        getProduct ().then((respuesta) => {
             let itemsFilter = dataProducts.filter(element => element.category == idCategory)
             console.log(data)
             if(idCategory == undefined){
@@ -19,7 +19,7 @@ function ItemListConteiner(){
             else{
                 setData(itemsFilter)
             }
-            
+
         }
         )
     }, [idCategory])
@@ -33,4 +33,4 @@ function ItemListConteiner(){
         </main>)
 }
 
-export default ItemListConteiner
+export default ItemListConteiner 

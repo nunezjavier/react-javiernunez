@@ -8,11 +8,18 @@ import getProduct from "../helpers/getProduct";
 
 function ItemDetailConteiner(){
     const [data, setData] = useState({});
-    const id = 4
+    const idUrl = useParams().id
 
     useEffect(() => {
-        getProduct (id).then((respuesta) => {
-            setData(respuesta)
+        getProduct ().then((respuesta) => {
+            let findItem = dataProducts.find((element) => element.id == idUrl)
+            console.log(data)
+            if(idUrl == undefined){
+                setData(respuesta)
+            }
+            else{
+                setData(findItem)
+            }
         }
         )
     }, [])
