@@ -32,6 +32,7 @@ function ItemDetailConteiner(){
         nombre = {data.nombre}
         desc = {data.desc}
         precio = {data.precio}
+        stock = {data.stock}
         />
         </>
         </main>)
