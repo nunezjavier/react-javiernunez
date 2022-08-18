@@ -7,13 +7,6 @@ function ItemListConteiner(){
     const [data, setData] = useState([]);
     const idCategory = useParams().idCategory
 
-function HeadProducts(){
-    return new Promise ((resolve) => {
-    setTimeout(() => resolve(dataProducts), 2000
-    )
-    }
-    )
-}
 
 
     useEffect(() => {

@@ -2,24 +2,16 @@ import React, {useState, useEffect} from "react";
 import ItemDetail from "./ItemDetail";
 import {useParams} from "react-router-dom"
 import dataProducts from "../Data/Data";
+import getProduct from "../helpers/getProduct";
 
 
 
 function ItemDetailConteiner(){
     const [data, setData] = useState({});
-    const idUrl = useParams().id
-
-function HeadProducts(){
-    return new Promise ((resolve) => {
-        let findItem = dataProducts.find((element) => element.id == idUrl)
-    setTimeout(() => resolve(findItem), 2000
-    )
-    }
-    )
-}
+    const id = 4
 
     useEffect(() => {
-        HeadProducts ().then((respuesta) => {
+        getProduct (id).then((respuesta) => {
             setData(respuesta)
         }
         )
