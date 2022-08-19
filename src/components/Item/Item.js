@@ -10,8 +10,7 @@ function Item({img, nombre, precio, stock, id}){
         <img className='itemImg' src= {img} alt =''></img>
         <h2 className='itemNombre'>{nombre}</h2>
         <p className='itemPrecio'>${precio}</p>
-        <Link className='itemLink' to={`/detail/${id}`}>Ver Detalle</Link>
-        <ItemCount stock={stock} initial={1} />
+        <button><Link className='itemLink' to={`/detail/${id}`}>Ver Detalle</Link></button>
         </div>
         </>
     )

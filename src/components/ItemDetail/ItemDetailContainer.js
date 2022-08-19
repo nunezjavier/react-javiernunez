@@ -22,7 +22,7 @@ function ItemDetailConteiner(){
             }
         }
         )
-    }, [])
+    }, [idUrl])
     return(
         <main>
         <>
