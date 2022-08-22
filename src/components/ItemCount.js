@@ -1,7 +1,7 @@
 import React from "react";
 
 
-function ItemCount ({stock, initial, addToCart }){
+function ItemCount ({stock, initial, onAdd }){
     const[clicks, setClicks] = React.useState(1)
 
     const handleIncrement =() =>{
@@ -18,7 +18,7 @@ function ItemCount ({stock, initial, addToCart }){
             <button onClick={handleDecrement} >-</button>
             <h3 className="click">{clicks}</h3>
             <button onClick={handleIncrement}>+</button>
-            <button onClick={() => addToCart(clicks)} className='product-addCart'>Agregar al Carrito</button>
+            <button onClick={() => onAdd(clicks)} className='product-addCart'>Agregar al Carrito</button>
         </div>
         </>
     )

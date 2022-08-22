@@ -27,6 +27,7 @@ function ItemDetailConteiner(){
         <main>
         <>
         <ItemDetail
+        data={data}
         key = {data.nombre}
         img = {data.img}
         nombre = {data.nombre}
