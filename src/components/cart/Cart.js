@@ -1,18 +1,31 @@
 import CartItem from "./CartItem"
 import { useContext } from 'react'
-import { cartContext } from '../store/CartContext';
+import { cartContext } from '../store/CartContext'
+import { Link } from "react-router-dom"
+import './Cart.css'
 
 function Cart(id) {
-    const { cart, addToCart, removeItem, removeAll } = useContext(cartContext);
+    const { cart, totalAmount, removeItem, removeAll, totalPrice } = useContext(cartContext);
     function removeItemCart(){
         removeItem(id)
     }
+    if (cart.length === 0) {
+        return (
+            <div className="divcart">
+                <h2 className="tituloCart">El Carrito esta Vacio</h2>
+                <Link  className="linkCart" to={"/"}>Volver al Inicio</Link>
+            </div>
+        )
+
+    }
+    else {
     return (
-        cart.map((item) => {
-            return (
-                <>
+        <main className="mainCart">
+        <section className="sectionCartItem">
+            {cart.map((item) => {
+                return (
                     <CartItem
-                        key={item.id + item.name }
+                        key={item.id + item.nombre }
                         img={item.img}
                         nombre={item.nombre}
                         precio={item.precio}
@@ -20,12 +33,25 @@ function Cart(id) {
                         removeItemCart= {removeItemCart}
 
                     />
-                    <button onClick={removeAll}> Vaciar Carrito </button>
-                </>
+                    )
+                })}
+                <button onClick={removeAll}> Vaciar Carrito </button>
+            </section>
+            <section>      
+                    <h1>Resumen del Pedido</h1>
+                    <h3>Cantidad de productos: {totalAmount()} </h3>
+                    <h3>Envío: Gratuito</h3>
+                    <h2>Total: $ {totalPrice()}</h2>
+                    <div>
+                    <Link to={"/"}><button>Seguir Comprando </button></Link>
+                    <Link to={"/checkout"}><button>Finalizar Compra </button></Link>
+                    </div>
+                    <img  className="metodosImg" src="https://res.cloudinary.com/dveku4pvl/image/upload/v1661110744/mercadopago_logos1_rld5ya.jpg" alt="Metodos de Pago"></img>
 
-            )
-        })
+            </section>
+        </main>
     )
+}
 }
 
 export default Cart  
