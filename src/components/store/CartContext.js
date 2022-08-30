@@ -50,11 +50,11 @@ export function CartProvider({ children }) {
     }
 
     function isInCart(id) {
-        return (copyCart.some(itemInCart => itemInCart.id === Number(id)))
+        return (copyCart.some(itemInCart => itemInCart.id === (id)))
     }
 
     function findItem(id){
-        return (copyCart.find(item => item.id === Number(id)))
+        return (copyCart.find(item => item.id === (id)))
     }
     return (
         <cartContext.Provider value={{ cart, addToCart, removeItem, removeAll, totalAmount, totalPrice }}>
