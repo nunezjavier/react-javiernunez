@@ -5,16 +5,23 @@ import {useState} from 'react'
 import {Link} from "react-router-dom"
 import { useContext } from "react";
 import { cartContext } from "../store/CartContext";
+import Swal from "sweetalert2"
 
 
 function ItemDetail({data}){
     const { addToCart} = useContext(cartContext)
     const [countCart,SetCount] = useState (0);
 
-    function onAdd(clicks) {   
-        addToCart( data , clicks);
-        SetCount(clicks)
-        console.log("Has agregado " + data.clicks + " de " + data.nombre + " al carrito")
+    function onAdd(cant) {   
+        addToCart( data , cant);
+        SetCount(cant)
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: `Has agregado ${cant}, de ${data.nombre} al carrito`,
+            showConfirmButton: false,
+            timer: 1500
+        })
     }
     return(
         <>

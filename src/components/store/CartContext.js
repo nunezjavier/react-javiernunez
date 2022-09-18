@@ -7,18 +7,16 @@ export function CartProvider({ children }) {
     const [cart, setCart] = useState([]);
     let copyCart = [...cart];
 
-    function addToCart( data , clicks) {
+    function addToCart( data , cant) {
         if (isInCart(data.id)) {
             const itemIndex = findItem(data.id)
-            copyCart[itemIndex].clicks += clicks;
+            copyCart[itemIndex].cant += cant;
             setCart(copyCart)
-            console.log(copyCart)
         }
         else {
-            copyCart.push({ ...data, clicks });
-            data.stock-= clicks
+            copyCart.push({ ...data, cant });
+            data.stock-= cant
             setCart(copyCart)
-            console.log(copyCart)
         }
 
     }
@@ -28,24 +26,22 @@ export function CartProvider({ children }) {
         const indexItem = copyCart.indexOf(itemRemove)
         copyCart.splice(indexItem, 1)
         setCart(copyCart)
-        console.log(copyCart)
     }
 
     function removeAll(){
         copyCart = []
         setCart(copyCart)
-        console.log(copyCart)
     }
 
     function totalAmount() {
         let amountCart = 0;
-        cart.map(index => amountCart += index.clicks);
+        cart.map(index => amountCart += index.cant);
         return amountCart;
     }
 
     function totalPrice(){
         let total = 0;
-        cart.map ((index) => total += index.precio * index.clicks);
+        cart.map ((index) => total += index.precio * index.cant);
         return total;
     }
 

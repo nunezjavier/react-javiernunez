@@ -30,7 +30,7 @@ function Cart(id) {
                         img={item.img}
                         nombre={item.nombre}
                         precio={item.precio}
-                        clicks={item.clicks}
+                        cant={item.cant}
                         removeItemCart= {removeItemCart}
 
                     />
