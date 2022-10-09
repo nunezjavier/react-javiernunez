@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from "react"
-import ItemList from "./ItemList/ItemList"
+import ItemList from "./ItemList"
 import {useParams} from "react-router-dom"
-import dataProducts from './Data/Data';
+import dataProducts from '../Data/Data';
 /*import getProduct from "./helpers/getProduct"*/
-import firestoreDB from "../services/firebase";
+import firestoreDB from "../../services/firebase";
 import { getDocs, collection} from 'firebase/firestore'
+import SpinnerLoad from '../spinnerLoad/load';
+import "../Item/Item.css"
 
 function ItemListConteiner(){
     const [data, setData] = useState([]);
@@ -12,7 +14,7 @@ function ItemListConteiner(){
 
     function getProducts() {
         return new Promise((resolve) => {
-            setTimeout(() => resolve(dataProducts), 1500) 
+            setTimeout(() => resolve(dataProducts), 2000) 
             const productosCollection = collection(firestoreDB, "productos")
             getDocs(productosCollection).then (snapshot =>{
                 const docsData = snapshot.docs.map ( doc =>{
@@ -39,13 +41,20 @@ function ItemListConteiner(){
         )
     }, [idCategory])
     return(
+    <>  
+        {data.length === 0 ?
+            <main className='spinner'>
+                <SpinnerLoad />
+            </main>
+            :
         <main>
-        <>
             <div className='cards'>
                 <ItemList data={data}/>
             </div>
+        </main>
+        } 
         </>
-        </main>)
+        )
 }
 
 export default ItemListConteiner 

@@ -23,7 +23,7 @@ function Cart(id) {
     return (
         <main className="mainCart">
         <section className="sectionCartItem">
-            {cart.map((item) => {
+            {cart.map((item, index) => {
                 return (
                     <CartItem
                         key={item.id + item.nombre }
@@ -32,7 +32,7 @@ function Cart(id) {
                         precio={item.precio}
                         cant={item.cant}
                         removeItemCart= {removeItemCart}
-
+                        id={index}
                     />
                     )
                 })}

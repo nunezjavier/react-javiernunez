@@ -21,8 +21,8 @@ export function CartProvider({ children }) {
 
     }
 
-    function removeItem(data) {
-        const itemRemove = findItem(data.id)
+    function removeItem(id) {
+        const itemRemove = findItem(id)
         const indexItem = copyCart.indexOf(itemRemove)
         copyCart.splice(indexItem, 1)
         setCart(copyCart)

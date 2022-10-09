@@ -1,9 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/NavBar';
-import './components/card.css'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ItemListConteiner from './components/ItemListConteiner';
+import ItemListConteiner from './components/Item/ItemListConteiner';
 import ItemDetailConteiner from './components/ItemDetail/ItemDetailContainer';
 import {CartProvider} from './components/store/CartContext'
 import Cart from './components/cart/Cart'

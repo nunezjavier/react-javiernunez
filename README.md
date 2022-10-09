@@ -16,6 +16,7 @@ La página contiene una sección principal en la que se ven los productos, un na
 <li>"@fortawesome/fontawesome-svg-core": "^6.1.2" </li>
 <li>"@fortawesome/free-solid-svg-icons": "^6.1.2"</li>
 <li>"@fortawesome/react-fontawesome": "^0.2.0"</li>
+<li>"@uiball/loaders"</li>
 <li>"firebase": "^9.9.3"</li>
 <li>"react": "^18.2.0"</li>
 <li>"react-dom": "^18.2.0"</li>
